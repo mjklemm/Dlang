@@ -1,3 +1,9 @@
+DC=gdc
+DFLAGS=-g
+
+#DC=dmd
+#DFLAGS=
+
 run: myapp
 	@echo "======================"
 	@./myapp
@@ -6,10 +12,10 @@ run: myapp
 all: myapp
 
 myapp: Foo.o bla.o
-	dmd -of=$@ Foo.o bla.o
+	gdc -o $@ Foo.o bla.o
 
 %.o: %.d
-	dmd -c -of=$@ $<
+	gdc -c -o $@ $<
 
 clean:
 	rm -f *.o
