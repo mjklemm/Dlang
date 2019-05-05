@@ -11,11 +11,11 @@ run: myapp
 
 all: myapp
 
-myapp: Foo.o bla.o
-	gdc -o $@ Foo.o bla.o
+myapp: MyException.o Foo.o bla.o
+	gdc -g -o $@ MyException.o Foo.o bla.o
 
 %.o: %.d
-	gdc -c -o $@ $<
+	gdc -g -c -o $@ $<
 
 clean:
 	rm -f *.o
