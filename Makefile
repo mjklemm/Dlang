@@ -12,7 +12,7 @@ run: myapp
 all: myapp
 
 myapp: MyException.o Foo.o bla.o
-	gdc -g -o $@ MyException.o Foo.o bla.o
+	gdc -shared-libphobos -g -o $@ MyException.o Foo.o bla.o
 
 %.o: %.d
 	gdc -g -c -o $@ $<
